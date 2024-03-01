@@ -1,0 +1,57 @@
+.menuCard{
+    padding-top: 10rem;
+    -ms-transform: skewY(45deg); 
+    transform: skewY(45deg);
+    transform: skewX(-20deg);
+    justify-content: center;
+    filter: drop-shadow( 24px 11px 50px  #74085060);
+  }
+  
+  .menuCard1{
+    
+    padding-top: 10rem;
+    -ms-transform: skewY(45deg); 
+    transform: skewY(45deg);
+    transform: skewX(-20deg);
+    filter: drop-shadow( 24px 11px 50px  #74085060);
+  }
+
+  .delay-0 {
+    animation-name: pulse;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: backwards;
+  }
+  
+  .delay-1 {
+    animation-name: pulse;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-fill-mode: backwards;
+  }
+
+  @keyframes pulse {
+
+    0% {
+      -ms-transform: skewY(45deg); 
+      transform: skewY(10deg) skewX(-15deg) translateY(0);
+      
+  
+    }
+  
+    50% {
+  -ms-transform: skewY(45deg); 
+      transform: skewY(10deg) skewX(-15deg) translateY(-25px);
+      
+    }
+  
+    100% {
+  
+      transform: skewY(10deg) skewX(-15deg) translateY(0);
+  
+    }
+  
+  }
+  
