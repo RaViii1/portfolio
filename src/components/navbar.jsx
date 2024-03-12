@@ -1,7 +1,8 @@
 import './css/tailwind.css'; 
 import './css/portfolio.css'; 
 import './css/navbar.css'; 
-import About from "../pages/about";
+import About from "./about";
+import CV from '../CV.pdf';
 import React, { useEffect, useState } from "react";
 import { Link  } from "react-router-dom";
 // import axios from 'axios';
@@ -43,11 +44,20 @@ export default function Navbar() {
           <a href="/" className={`text-[#ce2d42]  shadow-[#ce2d42] font-mono text-3xl flex items-center space-x-2 py-5 pl-2`}>RaVi</a>
         </div>
         <div className="text-lg">
-        <div className={`text-[#dbd9e8]  mx-3 px-5 ${folded ? 'folded' : ''}`}>
+        <div className={`text-[#dbd9e8]  mx-4 px-5 ${folded ? 'folded' : ''}`}>
         {/* <Link  to="/about">About</Link > */}
         <a href="#contact" className="px-2 hover:text-[#d2ee41] hover:border-b hover:border-[#d2ee41]">Contact</a>
         <a href="https://github.com/RaViii1" className="px-2 hover:text-[#d2ee41] hover:border-b hover:border-[#d2ee41]">GitHub</a>
-        <a href="#contact" className="px-2 hover:text-[#d2ee41] hover:border-b hover:border-[#d2ee41]">CV</a>
+        
+        <a
+          href={CV}
+          download="Example-PDF-document"
+          target="_blank"
+          rel="noreferrer"
+          className="px-2 hover:text-[#d2ee41] hover:border-b hover:border-[#d2ee41]"
+          >
+          <button>CV</button>
+        </a>
       </div>
         </div>
       </div>

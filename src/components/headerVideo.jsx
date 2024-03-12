@@ -19,7 +19,7 @@ const LoopingVideoPlayer = () => {
   }, []);
 
   return (
-    <div className='videoGlass snap-center'>
+    <div className='videoGlass snap-center relative bg-[#100c31]'>
       <video ref={videoRef} autoPlay muted loop className='videobg'>
         <source src="bgvideo.mp4" type="video/mp4" />
         Your browser does not support the video tag.

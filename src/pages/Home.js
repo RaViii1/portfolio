@@ -6,7 +6,7 @@ import React from 'react';
 import ContactForm from '../components/ContactForm';
 import LoopingVideoPlayer from '../components/headerVideo';
 import Navbar  from '../components/navbar';
-import About from "../pages/about";
+import About from "../components/about";
 
 function Home() {
   return (
