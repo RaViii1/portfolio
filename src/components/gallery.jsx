@@ -34,7 +34,7 @@ const Gallery = () => {
           
           <div className="zoom relative overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20" data-te-ripple-init data-te-ripple-color="light">
             <video className="w-full align-middle transition duration-300 ease-linear " autoPlay loop muted>
-                <source src="animatedBG.mp4" type="video/mp4" />
+                <source src={process.env.PUBLIC_URL + '/imgs/animatedBG.mp4'}type="video/mp4" />
             </video>
             
             <a href="#!">
