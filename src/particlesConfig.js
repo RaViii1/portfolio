@@ -390,7 +390,7 @@ export const particlesOptions = {
       number: {
         density: {
           enable: true,
-          area: 800,
+          area: 200,
           factor: 1000
         },
         limit: 0,

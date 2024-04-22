@@ -38,7 +38,7 @@ const ParticlesComponent = (props) => {
           value: "#100c31",
         },
       },
-      fpsLimit: 144,
+      fpsLimit: 60,
       interactivity: {
         events: {
           onClick: {
@@ -53,7 +53,7 @@ const ParticlesComponent = (props) => {
         modes: {
           push: {
             distance: 200,
-            duration: 15,
+            duration: 20,
           },
           grab: {
             distance: 100,
@@ -66,10 +66,10 @@ const ParticlesComponent = (props) => {
         },
         links: {
           color: "#d2ee41",
-          distance: 150,
+          distance: 120,
           enable: true,
-          opacity: 0.3,
-          width: 1,
+          opacity: 0.5,
+          width: 2,
         },
         move: {
           direction: "none",
@@ -85,10 +85,10 @@ const ParticlesComponent = (props) => {
           density: {
             enable: false,
           },
-          value: 200,
+          value: 100,
         },
         opacity: {
-          value: .5,
+          value: .7,
         },
         shape: {
           type: "circle",
