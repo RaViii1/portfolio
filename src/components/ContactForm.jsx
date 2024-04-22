@@ -1,6 +1,7 @@
+import './css/portfolio.css'; 
 import React, { useState } from 'react';
 import { FaEnvelope, FaGit, FaGithub, FaLinkedin } from 'react-icons/fa';
-
+import ParticlesComponent from './ParticlesComponent';
 const ContactForm = () => {
 
 
@@ -64,7 +65,7 @@ const ContactForm = () => {
 
 
           
-          <div class="mt-8 w-full border-t border-gray-800 p-2 pt-8 text-center">
+          <div className="mt-8 w-full border-t border-gray-800 p-2 pt-8 text-center">
             
             {/* <p class="my-5 leading-normal"><br /></p>
             <span class="inline-flex">

@@ -1,15 +1,24 @@
-import './css/tailwind.css'; 
-import './css/portfolio.css'; 
+import React from 'react';
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 
-import React from "react";
-
-export default function Footer(){
-    return(
-        <div className="Footer glassBG text-center text-[#dbd9e8] py-1">
-           
-            <a className='pr-2'>Portfolio v0.2</a>
-            <a>&copy; Jakub "RaVi" Baran</a>
-            
+const Footer = () => {
+  return (
+    <footer className="bg-transparent text-gray-400 text-right text-sm sticky bottom-0 pr-4">
+      <div className="mx-auto">
+        <div className="mt-2 justify-start relative">
+          <div className="flex flex-col items-end pb-2">
+            <a href="https://github.com/RaViii1" className="py-2 hover:text-[#d2ee41]">
+              <FaGithub size={'1.5em'}></FaGithub>
+            </a>
+            <a href='https://www.linkedin.com/in/jakub-baran-1b83122ba/' className="py-2 hover:text-[#d2ee41]">
+              <FaLinkedinIn size={'1.5em'}></FaLinkedinIn>
+            </a>
+          </div>
         </div>
-    )
-}
+        <div className="bg-gray-400 h-[90px] w-[1px] absolute right-12 bottom-0"></div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

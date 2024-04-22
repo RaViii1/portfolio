@@ -2,6 +2,9 @@ html
 {
     background-color:#100c31 ;
 }
+
+
+
 .videoGlass {
     position: relative;
   }
@@ -27,3 +30,23 @@ html
   .glassBorderBottom{
     border-bottom: 1px solid rgba(83, 81, 92, 0.3);
   }
+
+  .glassBG{
+    background: rgba(83, 81, 92, 0.26);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+   
+  }
+  .imageZoom{
+    transform: translateZ(0);
+    transition: scale .25s linear;
+    transition: transform 0.3s ease-in-out;
+
+  }
+
+  .imageZoom:hover {
+    transform: scale(1.05);
+  }
+/* footer */
+ 

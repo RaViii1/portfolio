@@ -1,5 +1,5 @@
 .menuCard{
-    padding-top: 10rem;
+    padding-top: 5rem;
     -ms-transform: skewY(45deg); 
     transform: skewY(45deg);
     transform: skewX(-20deg);
@@ -9,7 +9,7 @@
   
   .menuCard1{
     
-    padding-top: 10rem;
+    padding-top: 5rem;
     -ms-transform: skewY(45deg); 
     transform: skewY(45deg);
     transform: skewX(-20deg);

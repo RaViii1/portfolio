@@ -1,10 +1,9 @@
 import './css/tailwind.css'; 
 import './css/portfolio.css'; 
 import './css/navbar.css'; 
-import About from "./about";
 import CV from '../CV.pdf';
 import React, { useEffect, useState } from "react";
-import { Link  } from "react-router-dom";
+// import { Link  } from "react-router-dom";
 // import axios from 'axios';
 import { FaBars, FaHome } from "react-icons/fa";
 
@@ -41,7 +40,7 @@ export default function Navbar() {
 
       <div className={`headerNav stick glassBG glassBorderBottom ${folded ? 'folded' : ''}`}>
         <div className="logo mx-5 px-5">
-          <a href="/" className={`text-[#ce2d42]  shadow-[#ce2d42] font-mono text-3xl flex items-center space-x-2 py-5 pl-2`}>RaVi</a>
+          <a href="/" className={`text-[#ce2d42] shadow-[#ce2d42] font-mono text-3xl flex items-center space-x-2 py-5 pl-2`}>RaVi</a>
         </div>
         <div className="text-lg">
         <div className={`text-[#dbd9e8]  mx-4 px-5 ${folded ? 'folded' : ''}`}>
@@ -54,10 +53,15 @@ export default function Navbar() {
           download="Example-PDF-document"
           target="_blank"
           rel="noreferrer"
-          className="px-2 hover:text-[#d2ee41] hover:border-b hover:border-[#d2ee41]"
+          className="px-2 hover:text-[#d2ee41]"
           >
-          <button>CV</button>
+          <button className="ml-4 bg-[#d2ee41] hover:bg-transparent border border-[#d2ee41] hover:text-white text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+            <svg className="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+            <span>Download CV</span>
+          </button>
         </a>
+
+
       </div>
         </div>
       </div>

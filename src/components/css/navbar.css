@@ -13,15 +13,7 @@
     z-index: 1000;
   }
 
-  .glassBG{
-    background: rgba(83, 81, 92, 0.26);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-   
-  }
 
-  
   .headerNav::after {
     content: "";
     padding-bottom: 1rem;
