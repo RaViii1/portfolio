@@ -1,8 +1,9 @@
 import React from 'react';
+import './css/portfolio.css';
 
 const Gallery = () => {
   return (
-    <div className="container my-24 mx-auto md:px-6 ">
+    <div className="container glassSection my-24 mx-auto md:px-6 ">
       <section className="mb-32">
         <style>
           {`
@@ -15,11 +16,11 @@ const Gallery = () => {
           Graphic work:
         </span></div>
 
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-6 lg:grid-cols-3 pb-8">
           
           <div className="zoom relative overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20" data-te-ripple-init data-te-ripple-color="light">
-            <img alt="render2" src={process.env.PUBLIC_URL + '/imgs/Render2.PNG'} className="w-full align-middle transition duration-300 ease-linear" />
-            <a href="#!">
+            <img alt="render2" src={process.env.PUBLIC_URL + '/imgs/render2.PNG'} className="w-full align-middle transition duration-300 ease-linear" />
+            <a href={process.env.PUBLIC_URL + '/imgs/render2.PNG'}>
               <div className="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-[hsla(0,0%,0%,0.4)] bg-fixed">
                 <div className="flex h-full items-end justify-start">
                   <div className="m-6 text-white">
@@ -34,10 +35,10 @@ const Gallery = () => {
           
           <div className="zoom relative overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20" data-te-ripple-init data-te-ripple-color="light">
             <video className="w-full align-middle transition duration-300 ease-linear " autoPlay loop muted>
-                <source src={process.env.PUBLIC_URL + '/imgs/animatedBG.mp4'}type="video/mp4" />
+                <source src={process.env.PUBLIC_URL + '/imgs/animatedBG.mp4'} type="video/mp4" />
             </video>
             
-            <a href="#!">
+            <a href={process.env.PUBLIC_URL + '/imgs/animatedBG.mp4'}>
                 <div className="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-[hsla(0,0%,0%,0.4)] bg-fixed">
                 <div className="flex h-full items-end justify-start">
                     <div className="m-6 text-white">
@@ -50,8 +51,8 @@ const Gallery = () => {
             </div>
 
           <div className="zoom relative overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20" data-te-ripple-init data-te-ripple-color="light">
-            <img alt="render1" src={process.env.PUBLIC_URL + '/imgs/Render1.PNG'} className="w-full align-middle transition duration-300 ease-linear" />
-            <a href="#!">
+            <img alt="render1" src={process.env.PUBLIC_URL + '/imgs/render1.PNG'} className="w-full align-middle transition duration-300 ease-linear" />
+            <a href={process.env.PUBLIC_URL + '/imgs/render1.PNG'}>
               <div className="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-[hsla(0,0%,0%,0.4)] bg-fixed">
                 <div className="flex h-full items-end justify-start">
                   <div className="m-6 text-white">
@@ -66,7 +67,7 @@ const Gallery = () => {
 
           <div className="zoom relative overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20" data-te-ripple-init data-te-ripple-color="light">
             <img  alt="photoshop" src={process.env.PUBLIC_URL + '/imgs/photoshop1.png'} className="w-full align-middle transition duration-300 ease-linear" />
-            <a href="#!">
+            <a href={process.env.PUBLIC_URL + '/imgs/photoshop1.png'}>
               <div className="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-[hsla(0,0%,0%,0.4)] bg-fixed">
                 <div className="flex h-full items-end justify-start">
                   <div className="m-6 text-white">

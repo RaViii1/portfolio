@@ -5,7 +5,10 @@
     flex-direction: row;
     text-transform: capitalize;
     align-items: center;
-      
+    
+  }
+  .headerNavbg{
+    background: linear-gradient(to top, transparent 10%, rgba(0,0,0,0.6) 100%);
   }
   .stick{
     position: sticky;

@@ -15,7 +15,7 @@ const Project = ({ name, description, image, technologies, CodeLink, LiveLink, i
           
           <img src={image} alt={name} className={`md:w-96 md:h-72 rounded imageZoom scale-75 ${isEvenIndex ? 'md:order-last md:ml-2' : 'md:order-first md:mr-2'} self-center `} />
           
-          <div className="glassBG shadow-md rounded-lg p-4 md:p-6 lg:p-8">
+          <div className="glassSection shadow-md rounded-lg p-4 md:p-6 lg:p-8">
               <div>
                 <h2 className="text-[#ce2d42] text-xl font-semibold md:text-2xl lg:text-3xl py-4">{name}</h2>
                 <p className="text-gray-400 md:text-lg lg:text-xl">{description}</p>

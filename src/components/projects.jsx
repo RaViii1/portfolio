@@ -44,17 +44,17 @@ export default function Projects() {
           ]}
           image={process.env.PUBLIC_URL + '/imgs/bankera.PNG'}
           technologies={bankera}
-          LiveLink={"http://dingo-mc.net:3001/"}
+          LiveLink={"https://bankera.dingo-mc.net/"}
           CodeLink={"https://github.com/RaViii1/engineering-thesis"}
         />
 
       <Gallery/>
         <div className='text-center pt-16'><span class="text-center text-4xl box-decoration-clone bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 ">
           In Planning: 
-        </span></div>
+        </span>
         
 <ol
-  class="my-8 mx-16 pb-8 px-8 border-l border-[#d2ee41] dark:border-[#ce2d42] md:flex md:justify-center md:gap-6 md:border-l-0 md:border-t">
+  class="my-8 mx-16 pb-8 px-8 glassSection border-l border-[#d2ee41] dark:border-[#ce2d42] md:flex md:justify-center md:gap-6 md:border-l-0 md:border-t">
  
  <li>
     <div class="flex-start flex items-center pt-2 md:block md:pt-0">
@@ -108,6 +108,6 @@ export default function Projects() {
   </div>
    
     </div>
-
+    </div>
   );
 }

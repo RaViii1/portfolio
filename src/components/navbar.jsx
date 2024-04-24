@@ -32,13 +32,14 @@ export default function Navbar() {
 
   return (
     <>
-      <div className='glassBG stick text-[#dbd9e8] w-full h-full flex flex-row items-right justify-end top-0 right-0'>
+    <div className='headerNavbg stick '>
+      <div className=' stick text-[#dbd9e8]  w-full h-full flex flex-row items-right justify-end top-0 right-0'>
         <button className="text-[#dbd9e8] foldButton text-3xl p-4" onClick={toggleFold}>
           {folded ? <FaBars /> : <FaHome />}
         </button>
       </div>
 
-      <div className={`headerNav stick glassBG glassBorderBottom ${folded ? 'folded' : ''}`}>
+      <div className={`headerNav glassBorderBottom ${folded ? 'folded' : ''}`}>
         <div className="logo mx-5 px-5">
           <a href="/" className={`text-[#ce2d42] shadow-[#ce2d42] font-mono text-3xl flex items-center space-x-2 py-5 pl-2`}>RaVi</a>
         </div>
@@ -64,6 +65,7 @@ export default function Navbar() {
 
       </div>
         </div>
+      </div>
       </div>
     </>
   );

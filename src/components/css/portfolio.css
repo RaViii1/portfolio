@@ -48,5 +48,13 @@ html
   .imageZoom:hover {
     transform: scale(1.05);
   }
+
+  .glassSection{
+    background: rgba(8, 8, 8, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(2, 2, 7, 0.349);
+    backdrop-filter: blur( 8.5px );
+    -webkit-backdrop-filter: blur( 5.5px );
+    border-radius: 10px;
+  }
 /* footer */
  
