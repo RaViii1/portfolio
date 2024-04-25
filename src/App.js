@@ -12,17 +12,15 @@ import ParticlesComponent from './components/ParticlesComponent';
 function App() {
 
   return (
-    <div className='snap-x'>
-
-<ParticlesComponent id="particles"/>
+    <div className="min-h-screen flex flex-col">
+      <ParticlesComponent id="particles" />
       <Navbar />
-      <LoopingVideoPlayer/>
+      <LoopingVideoPlayer />
       <About />
-      <Projects/>
+      <Projects />
       <ContactForm />
-      <Footer/>
-      
-      </div>
+      <Footer />
+    </div>
   );
 }
 

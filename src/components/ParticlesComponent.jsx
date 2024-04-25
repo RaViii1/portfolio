@@ -42,7 +42,7 @@ const ParticlesComponent = (props) => {
       interactivity: {
         events: {
           onClick: {
-            enable: true,
+            enable: false,
             mode: "repulse",
           },
           onHover: {
@@ -83,9 +83,9 @@ const ParticlesComponent = (props) => {
         },
         number: {
           density: {
-            enable: false,
+            enable: true,
           },
-          value: 100,
+          value: 120,
         },
         opacity: {
           value: .7,

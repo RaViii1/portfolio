@@ -19,7 +19,7 @@ const Gallery = () => {
         <div className="grid gap-6 lg:grid-cols-3 pb-8">
           
           <div className="zoom relative overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20" data-te-ripple-init data-te-ripple-color="light">
-            <img alt="render2" src={process.env.PUBLIC_URL + '/imgs/render2.PNG'} className="w-full align-middle transition duration-300 ease-linear" />
+            <img alt="render2" src={process.env.PUBLIC_URL + '/imgs/render2-scaled.webp'} className="w-full align-middle transition duration-300 ease-linear" />
             <a href={process.env.PUBLIC_URL + '/imgs/render2.PNG'}>
               <div className="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-[hsla(0,0%,0%,0.4)] bg-fixed">
                 <div className="flex h-full items-end justify-start">
@@ -51,7 +51,7 @@ const Gallery = () => {
             </div>
 
           <div className="zoom relative overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20" data-te-ripple-init data-te-ripple-color="light">
-            <img alt="render1" src={process.env.PUBLIC_URL + '/imgs/render1.PNG'} className="w-full align-middle transition duration-300 ease-linear" />
+            <img alt="render1" src={process.env.PUBLIC_URL + '/imgs/render1-scaled.webp'} className="w-full align-middle transition duration-300 ease-linear" />
             <a href={process.env.PUBLIC_URL + '/imgs/render1.PNG'}>
               <div className="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-[hsla(0,0%,0%,0.4)] bg-fixed">
                 <div className="flex h-full items-end justify-start">
