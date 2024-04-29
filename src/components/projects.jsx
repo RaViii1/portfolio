@@ -9,7 +9,7 @@ export default function Projects() {
 
   const magicmatch = ['MongoDB', 'Express', 'React', 'NodeJS'];
   const bankera = ['NextJS', 'MySQL', 'Prisma', 'TailwindCSS', 'ChartJS'];
-
+  const RMovies = ['React', 'NodeJS', 'TailwindCSS'];
   return (
     <div id="projects" className='flex flex-col glassBorderBottom "'>
 
@@ -47,6 +47,15 @@ export default function Projects() {
           LiveLink={"https://bankera.dingo-mc.net/"}
           CodeLink={"https://github.com/RaViii1/engineering-thesis"}
         />
+
+        <Project
+          index={3}
+          name="RMovies"
+          description="RMovies is my newest project started as app design. Currently working on making it into fully working app with any API"
+          image={process.env.PUBLIC_URL + '/imgs/movies.PNG'}
+          technologies={RMovies}
+          CodeLink={"not available for now"}
+        />    
 
       <Gallery/>
         <div className='text-center pt-16'><span class="text-center text-4xl box-decoration-clone bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 ">
