@@ -35,11 +35,15 @@ const WIP = () => {
   };
 
   return (
+    
     <div 
       className="relative overflow-hidden"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
+              <div className='text-center py-16'><span class="text-center text-4xl box-decoration-clone bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 ">
+          Working on:
+        </span></div>
       <video
         ref={videoRef}
         src={process.env.PUBLIC_URL + "/renderVid.mp4"}
