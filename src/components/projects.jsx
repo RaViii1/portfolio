@@ -74,7 +74,23 @@ export default function Projects() {
       </p>
     </div>
     <div class="ml-4 mt-2 pb-5 md:ml-0">
-      <h4 class="mb-1.5 text-xl font-semibold text-[#ce2d42]">Netflix clone</h4>
+      <h4 class="mb-1.5 text-xl font-semibold text-[#ce2d42]">Streaming app design</h4>
+      <p class="mb-3 text-neutral-500 dark:text-neutral-300">
+        App design 
+      </p>
+    </div>
+  </li>
+
+  <li>
+    <div class="flex-start flex items-center pt-2 md:block md:pt-0">
+      <div
+        class="ml-[5px] mr-3 h-[12px] w-[12px] rounded-full bg-[#ce2d42] dark:bg-[#ce2d42] md:-mt-[5px] md:ml-0 md:mr-0"></div>
+      <p class="mt-2 text-sm text-neutral-500 dark:text-neutral-300">
+        2024
+      </p>
+    </div>
+    <div class="ml-4 mt-2 pb-5 md:ml-0">
+      <h4 class="mb-1.5 text-xl font-semibold text-[#ce2d42] ">Unreal Engine 5 project</h4>
       <p class="mb-3 text-neutral-500 dark:text-neutral-300">
         App design 
       </p>
