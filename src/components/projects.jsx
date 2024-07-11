@@ -74,7 +74,7 @@ export default function Projects() {
       </p>
     </div>
     <div class="ml-4 mt-2 pb-5 md:ml-0">
-      <h4 class="mb-1.5 text-xl font-semibold text-[#ce2d42]">Netflix clone</h4>
+      <h4 class="mb-1.5 text-xl font-semibold text-[#ce2d42]">Streaming app</h4>
       <p class="mb-3 text-neutral-500 dark:text-neutral-300">
         App design 
       </p>
