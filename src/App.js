@@ -8,6 +8,7 @@ import Projects from './components/projects';
 import Footer from './components/footer';
 import About from './components/about';
 import ParticlesComponent from './components/ParticlesComponent';
+import WIP from './components/WIP';
 
 function App() {
 
@@ -18,7 +19,9 @@ function App() {
       <LoopingVideoPlayer />
       <About />
       <Projects />
+      <WIP/>
       <ContactForm />
+
       <Footer />
     </div>
   );
