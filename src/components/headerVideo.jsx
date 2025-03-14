@@ -2,40 +2,62 @@ import React, { useRef, useEffect } from 'react';
 import './css/portfolio.css'; // Adjust the path to correctly import the CSS file
 
 const LoopingVideoPlayer = () => {
-  const videoRef = useRef(null);
+  // const videoRef = useRef(null);
 
-  useEffect(() => {
-    const video = videoRef.current;
+  // useEffect(() => {
+  //   const video = videoRef.current;
 
-    const handleEnded = () => {
-      video.play();
-    };
+  //   const handleEnded = () => {
+  //     video.play();
+  //   };
 
-    video.addEventListener('ended', handleEnded);
+  //   video.addEventListener('ended', handleEnded);
 
-    return () => {
-      video.removeEventListener('ended', handleEnded);
-    };
-  }, []);
+  //   return () => {
+  //     video.removeEventListener('ended', handleEnded);
+  //   };
+  // }, []);
 
   return (
-    <div className='videoGlass snap-center relative bg-[#100c31]'>
-      <video ref={videoRef} autoPlay muted loop className='videobg'>
-        <source src="bgvideo.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <section className="section-overlay">
-        <div className="px-6 py-12 md:px-12">
-          <h2 className="my-12 text-5xl font-bold tracking-tigh text-[#ce2d42]">
-            <span className="text-primary dark:text-[#dbd9e8]">Check out my work</span>
-          </h2>
-          <a className="mb-2 inline-block rounded bg-[#ce2d42] border border-[#ce2d42] px-12 pt-4 pb-3.5 text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-transparent hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] md:mr-2 md:mb-0"
-             href="#!" role="button">Projects</a>
-          <a className="inline-block rounded px-12 pt-4 pb-3.5 text-sm font-medium uppercase leading-normal text-[#dbd9e8] border border-[#d2ee41] transition duration-150 ease-in-out hover:bg-neutral-500 hover:bg-opacity-10 hover:text-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700 dark:hover:bg-neutral-700 dark:hover:bg-opacity-40"
-            href="#contact" role="button">Contact</a>
-        </div>
-      </section>
+//     <div className='videoGlass snap-center relative bg-[#100c31]'>
+//       <video ref={videoRef} autoPlay muted loop className='videobg'>
+//         <source src="bgvideo.mp4" type="video/mp4" />
+//         Your browser does not support the video tag.
+//       </video>
+//       <section className="section-overlay">
+//         <div className="px-6 py-12 md:px-12">
+//         <h2 className="my-12 text-5xl font-bold tracking-tight text-[#ce2d42]">
+//   <span className="text-primary dark:text-[#dbd9e8]">Explore My Portfolio</span>
+// </h2>
+// <p className="text-lg text-[#dbd9e8] dark:text-[#dbd9e8]">
+//   A showcase of my projects and achievements.
+// </p>
+
+//         </div>
+//       </section>
+//     </div>
+
+<div className="videoGlass snap-center relative bg-[#100c31] h-screen">
+  <img src={process.env.PUBLIC_URL + '/imgs/baner.jpg'} alt="Banner Image" className='videobg object-cover h-full w-full' />
+  <section className="section-overlay flex items-center justify-center h-full">
+    <div className="px-6 py-12 md:px-12 text-center">
+      <h2 className="my-12 text-6xl font-bold tracking-tight text-[#ce2d42]">
+        <span className="text-primary dark:text-[#dbd9e8]">Explore My Portfolio</span>
+      </h2>
+      <p className="text-lg text-[#dbd9e8] dark:text-[#dbd9e8] mb-8">
+        A showcase of my projects and achievements.
+      </p>
+      <div className="flex justify-center">
+        <a href="#projects" className="py-2 px-4 bg-[#ce2d42] text-white rounded hover:bg-[#a81d3d] transition duration-300">
+          View Projects
+        </a>
+      </div>
     </div>
+  </section>
+</div>
+
+
+    
   );
 };
 

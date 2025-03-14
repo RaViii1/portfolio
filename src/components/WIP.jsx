@@ -25,7 +25,7 @@ const WIP = () => {
           setIsHovering(false);
           setIsFading(false);
         }, 1000); // Duration of the fade-out effect
-      }, 10000); // 20 seconds
+      }, 10000); // 10 seconds
     }
     return () => clearTimeout(timer);
   }, [isHovering]);
@@ -35,15 +35,16 @@ const WIP = () => {
   };
 
   return (
-    
     <div 
-      className="relative overflow-hidden"
+      className="relative overflow-hidden h-screen"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
-              <div className='text-center py-16'><span class="text-center text-4xl box-decoration-clone bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 ">
+      <div className="text-center py-16">
+        <span className="text-center text-4xl box-decoration-clone bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2">
           Working on:
-        </span></div>
+        </span>
+      </div>
       <video
         ref={videoRef}
         src={process.env.PUBLIC_URL + "/renderVid.mp4"}
@@ -51,7 +52,7 @@ const WIP = () => {
         loop
         muted
         playsInline
-        className="w-full h-auto"
+        className="w-full h-full object-cover"
         onError={handleVideoError}
       >
         Your browser does not support the video tag.
@@ -62,12 +63,11 @@ const WIP = () => {
         } ${isFading ? 'opacity-0 transition-opacity duration-2000' : 'opacity-100'}`}
       >
         <div className="h-64 w-full bg-white bg-opacity-10 glassSection border-opacity-20 p-6 flex flex-col items-center justify-center">
-          <h2 className="text-2xl font-bold mb-4 text-white w-full border-b border-gray-400 p-2 text-center">My Unreal Engine 5 project</h2>
+          <h2 className="text-2xl font-bold mb-4 text-white w-full border-b border-gray-400 p-2 text-center">
+            My Unreal Engine 5 Project
+          </h2>
           <p className="text-white text-center w-5/6 mt-4">
-            Currently developing visual environment for a master's degree thesis.
-            This project leverages UE5's advanced features including
-            Nanite, Lumen, and ray tracing capabilities to create high-fidelity
-             scenes for benchmarking and visual comparison.
+            Currently developing a visual environment for a master's degree thesis. This project leverages UE5's advanced features, including Nanite, Lumen, and ray tracing capabilities, to create high-fidelity scenes for benchmarking and visual comparison.
           </p>
         </div>
       </div>

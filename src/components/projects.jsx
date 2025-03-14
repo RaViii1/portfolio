@@ -5,10 +5,11 @@ import React from "react";
 import Project from './project';
 import Gallery from './gallery'; 
 import ParticlesComponent from './ParticlesComponent';
+import LandingPageCarousel from './LandingPageCarousel';
 export default function Projects() {
 
   const magicmatch = ['MongoDB', 'Express', 'React', 'NodeJS'];
-  const bankera = ['NextJS', 'MySQL', 'Prisma', 'TailwindCSS', 'ChartJS'];
+  const bankera = ['NextJS', 'TypeScript', 'MySQL', 'Prisma', 'TailwindCSS', 'ChartJS'];
   const RMovies = ['React', 'NodeJS', 'TailwindCSS'];
   return (
     <div id="projects" className='flex flex-col glassBorderBottom "'>
@@ -51,11 +52,19 @@ export default function Projects() {
         <Project
           index={3}
           name="RMovies"
-          description="RMovies is my newest project started as app design. Currently working on making it into fully working app with any API"
+          description="WatchMovies is my latest project, initiated as an app design endeavor following the completion of a three-month internship at ArtSaas Technologies. This project leverages the skills and insights gained during my internship to create an engaging and user-friendly movie streaming application."
           image={process.env.PUBLIC_URL + '/imgs/movies.PNG'}
+          images={[
+            process.env.PUBLIC_URL + '/imgs/Watchmovies1.png',
+            process.env.PUBLIC_URL + '/imgs/Watchmovies2.png',
+            process.env.PUBLIC_URL + '/imgs/Watchmovies3.png',
+          ]}
           technologies={RMovies}
-          CodeLink={"not available for now"}
-        />    
+          CodeLink={"https://github.com/RaViii1/WatchApp"}
+          LiveLink={""}
+        />
+
+    <LandingPageCarousel />
 
       <Gallery/>
         <div className='text-center pt-16'><span class="text-center text-4xl box-decoration-clone bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 ">
@@ -91,7 +100,7 @@ export default function Projects() {
       </p>
     </div>
     <div class="ml-4 mt-2 pb-5 md:ml-0 ">
-      <h4 class="mb-1.5 text-xl font-semibold text-[#ce2d42]">Messenger clone</h4>
+      <h4 class="mb-1.5 text-xl font-semibold text-[#ce2d42]">Chatroom application</h4>
       <p class="mb-3 text-neutral-500 dark:text-neutral-300">
         App allowing users to create chatrooms
       </p>
@@ -116,7 +125,7 @@ export default function Projects() {
 
 </ol>
   </div>
-   
+  
     </div>
     </div>
   );

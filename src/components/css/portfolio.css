@@ -58,3 +58,14 @@ html
   }
 /* footer */
  
+.swiper-pagination-bullet {
+  background-color: grey; /* Inactive bullet color */
+  width: 12px; /* Bullet width */
+  height: 12px; /* Bullet height */
+  opacity: 1; /* Ensure visibility */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: white; /* Active bullet color */
+}
+
