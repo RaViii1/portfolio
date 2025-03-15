@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './css/portfolio.css';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 const Project = ({ name, description, image, images, technologies, CodeLink, LiveLink, index }) => {
   const isEvenIndex = index % 2 === 0;
@@ -20,9 +23,19 @@ const Project = ({ name, description, image, images, technologies, CodeLink, Liv
     }
   };
 
+  
+    useEffect(() => {
+      AOS.init({
+        duration: 700, // Animation duration in milliseconds
+        easing: 'ease-out-cubic', // Animation easing
+        once: true, 
+      });
+    }, []);
+
   return (
     <div className='flex flex-col items-center mx-4 md:mx-16 mb-32'>
-      <div className={`flex flex-col ${isEvenIndex ? 'md:order-first' : 'md:order-last'}`}>
+      <div data-aos={isEvenIndex ? 'fade-left' : 'fade-right'} 
+           className={`flex flex-col ${isEvenIndex ? 'md:order-first ' : 'md:order-last'}`}>
         <div className={`flex justify-between items-center p-1 m-1`}>
           <div className="flex">
             <a href={CodeLink} className='ml-4 bg-[#d2ee41] hover:bg-transparent border border-[#d2ee41] hover:text-white text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center'>Code</a>

@@ -12,15 +12,18 @@ export default function Projects() {
   const bankera = ['NextJS', 'TypeScript', 'MySQL', 'Prisma', 'TailwindCSS', 'ChartJS'];
   const RMovies = ['React', 'NodeJS', 'TailwindCSS'];
   return (
-    <div id="projects" className='flex flex-col glassBorderBottom "'>
+    <div id="projects" className='flex flex-col "'>
 
      
       <div className='projectBody'>
       {/* <ParticlesComponent id="tsparticles "/> */}
       
-        <div className='text-center py-16'><span class="text-center text-4xl box-decoration-clone bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 ">
-          My projects:
-        </span></div>
+      <div className='text-center'>
+        <h2 className="py-16 text-4xl font-bold text-gray-900 dark:text-gray-100 bg-gradient-to-r from-indigo-600 to-pink-500 bg-clip-text text-transparent">
+          Featured Projects
+        </h2>
+      </div>
+
 
          <Project
           index={1}
@@ -64,67 +67,62 @@ export default function Projects() {
           LiveLink={""}
         />
 
-    <LandingPageCarousel />
-
+      <LandingPageCarousel />
       <Gallery/>
-        <div className='text-center pt-16'><span class="text-center text-4xl box-decoration-clone bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 ">
-          In Planning: 
-        </span>
-        
-<ol
-  class="my-8 mx-16 pb-8 px-8 glassSection border-l border-[#d2ee41] dark:border-[#ce2d42] md:flex md:justify-center md:gap-6 md:border-l-0 md:border-t">
- 
- <li>
-    <div class="flex-start flex items-center pt-2 md:block md:pt-0">
-      <div
-        class="ml-[5px] mr-3 h-[12px] w-[12px] rounded-full bg-[#ce2d42] dark:bg-[#ce2d42] md:-mt-[5px] md:ml-0 md:mr-0"></div>
-      <p class="mt-2 text-sm text-neutral-500 dark:text-neutral-300">
-        2024
-      </p>
-    </div>
-    <div class="ml-4 mt-2 pb-5 md:ml-0">
-      <h4 class="mb-1.5 text-xl font-semibold text-[#ce2d42]">Streaming app</h4>
-      <p class="mb-3 text-neutral-500 dark:text-neutral-300">
-        App design 
-      </p>
-    </div>
-  </li>
+      <div className="text-center pb-8">
+  <span className="text-4xl font-bold text-gray-900 dark:text-gray-100 bg-gradient-to-r from-indigo-600 to-pink-500 bg-clip-text text-transparent">
+    Upcoming Projects:
+  </span>
+
+  <ol className="my-16 mx-16 pb-8 px-8 glassSection border-l border-r border-[#d2ee41] dark:border-[#ce2d42] md:flex md:justify-center md:gap-6 md:border-l-0 md:border-r-0 md:border-t">
+    <li className="mb-8 md:mb-0">
+      <div className="flex justify-center mb-2">
+        <div className="h-[12px] w-[12px] rounded-full bg-[#ce2d42] dark:bg-[#ce2d42]"></div>
+      </div>
+      <div className="text-center">
+        <p className="text-sm text-neutral-500 dark:text-neutral-300 mb-1">
+          2024
+        </p>
+        <h4 className="mb-1.5 text-xl font-semibold text-[#ce2d42]">Streaming App</h4>
+        <p className="mb-3 text-neutral-500 dark:text-neutral-300">
+          Designing a modern streaming application.
+        </p>
+      </div>
+    </li>
+
+    <li className="mb-8 md:mb-0">
+      <div className="flex justify-center mb-2">
+        <div className="h-[12px] w-[12px] rounded-full bg-[#ce2d42] dark:bg-[#ce2d42]"></div>
+      </div>
+      <div className="text-center">
+        <p className="text-sm text-neutral-500 dark:text-neutral-300 mb-1">
+          2025
+        </p>
+        <h4 className="mb-1.5 text-xl font-semibold text-[#ce2d42]">Chatroom Application</h4>
+        <p className="mb-3 text-neutral-500 dark:text-neutral-300">
+          Developing an app that allows users to create and manage chatrooms.
+        </p>
+      </div>
+    </li>
+
+    <li>
+      <div className="flex justify-center mb-2">
+        <div className="h-[12px] w-[12px] rounded-full bg-[#ce2d42] dark:bg-[#ce2d42]"></div>
+      </div>
+      <div className="text-center">
+        <p className="text-sm text-neutral-500 dark:text-neutral-300 mb-1">
+          Future
+        </p>
+        <h4 className="mb-1.5 text-xl font-semibold text-[#ce2d42]">Future Projects</h4>
+        <p className="mb-3 text-neutral-500 dark:text-neutral-300">
+          Stay tuned for updates on upcoming projects.
+        </p>
+      </div>
+    </li>
+  </ol>
+</div>
 
 
-  <li className=''>
-    <div class="flex-start flex items-center pt-2 md:block md:pt-0  ">
-      <div
-        class="ml-[5px] mr-3 h-[12px] w-[12px] rounded-full bg-[#ce2d42] dark:bg-[#ce2d42] md:-mt-[5px] md:ml-0 md:mr-0"></div>
-      <p class="mt-2 text-sm text-neutral-500 dark:text-neutral-300 ">
-        2025
-      </p>
-    </div>
-    <div class="ml-4 mt-2 pb-5 md:ml-0 ">
-      <h4 class="mb-1.5 text-xl font-semibold text-[#ce2d42]">Chatroom application</h4>
-      <p class="mb-3 text-neutral-500 dark:text-neutral-300">
-        App allowing users to create chatrooms
-      </p>
-    </div>
-  </li>
-
-  <li>
-    <div class="flex-start flex items-center pt-2 md:block md:pt-0">
-      <div
-        class="ml-[5px] mr-3 h-[12px] w-[12px] rounded-full bg-[#ce2d42] dark:bg-[#ce2d42] md:-mt-[5px] md:ml-0 md:mr-0"></div>
-      <p class="mt-2 text-sm text-neutral-500 dark:text-neutral-300">
-        Future
-      </p>
-    </div>
-    <div class="ml-4 mt-2 pb-5 md:ml-0">
-      <h4 class="mb-1.5 text-xl font-semibold text-[#ce2d42]">Future projects</h4>
-      <p class="mb-3 text-neutral-500 dark:text-neutral-300">
-        More info soon
-      </p>
-    </div>
-  </li>
-
-</ol>
-  </div>
   
     </div>
     </div>

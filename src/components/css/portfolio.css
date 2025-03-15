@@ -58,14 +58,15 @@ html
   }
 /* footer */
  
-.swiper-pagination-bullet {
-  background-color: grey; /* Inactive bullet color */
-  width: 12px; /* Bullet width */
-  height: 12px; /* Bullet height */
-  opacity: 1; /* Ensure visibility */
-}
 
 .swiper-pagination-bullet-active {
   background-color: white; /* Active bullet color */
 }
 
+.swiper-pagination-bullet {
+  background-color: #ce2d42 !important;
+  width: 14px;
+  height: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.473);
+  border-radius: 50%;
+}

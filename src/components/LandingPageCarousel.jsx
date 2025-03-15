@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules'; 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './css/portfolio.css'; 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const LandingPageCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -28,25 +30,33 @@ const LandingPageCarousel = () => {
     },
   ];
   
+  useEffect(() => {
+    AOS.init({
+      duration: 700, // Animation duration in milliseconds
+      easing: 'ease-out-cubic', // Animation easing
+      once: true, 
+    });
+  }, []);
+
   return (
-    <>
-      <div className='text-center py-16'>
-        <span className="text-center text-4xl box-decoration-clone bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2">
-          Projects I worked on during internship
-        </span>
+    <div data-aos="fade-down">
+      <div className="text-center py-16">
+        <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-100 bg-gradient-to-r from-indigo-600 to-pink-500 bg-clip-text text-transparent">
+          Internship Projects
+        </h2>
       </div>
-      
-      <div className="relative my-8 max-w-[60%] mx-auto">
+
+      <div className="relative mb-8 max-w-[60%] mx-auto">
         {/* Navigation Buttons */}
         <button 
-          className="hidden absolute top-1/2 -left-8 transform -translate-y-1/2 bg-gray-800 hover:bg-gray-700 text-white rounded-full w-10 h-10 md:flex md:items-center md:justify-center shadow-md z-10"
+          className="hidden absolute top-1/2 -left-8 transform -translate-y-1/2 bg-[#ce2d42] hover:bg-[#b12a3b] text-white rounded-full w-10 h-10 md:flex md:items-center md:justify-center shadow-md z-10"
           id="prev-button"
         >
           &#10094;
         </button>
         
         <button 
-          className="hidden absolute top-1/2 -right-8 transform -translate-y-1/2 bg-gray-800 hover:bg-gray-700 text-white rounded-full w-10 h-10 md:flex md:items-center md:justify-center shadow-md z-10"
+          className="hidden absolute top-1/2 -right-8 transform -translate-y-1/2 bg-[#ce2d42] hover:bg-[#b12a3b] text-white rounded-full w-10 h-10 md:flex md:items-center md:justify-center shadow-md z-10"
           id="next-button"
         >
           &#10095;
@@ -62,6 +72,9 @@ const LandingPageCarousel = () => {
           pagination={{
             clickable: true,
             dynamicBullets: true,
+            renderBullet(index, className) {
+              return `<span class="${className}" style="background-color:#ce2d42; width: 12px; height: 12px;"></span>`;
+            },
           }}
           loop={true}
           onSlideChange={(swiper) => setCurrentIndex(swiper.realIndex)}
@@ -93,8 +106,9 @@ const LandingPageCarousel = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+        <div className="swiper-pagination-container mt-4"></div>
       </div>
-    </>
+    </div>
   );
 };
 
