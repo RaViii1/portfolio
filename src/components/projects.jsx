@@ -69,61 +69,9 @@ export default function Projects() {
 
       <LandingPageCarousel />
       <Gallery/>
-      <div className="text-center pb-8">
-  <span className="text-4xl font-bold text-gray-900 dark:text-gray-100 bg-gradient-to-r from-indigo-600 to-pink-500 bg-clip-text text-transparent">
-    Upcoming Projects:
-  </span>
-
-  <ol className="my-16 mx-16 pb-8 px-8 glassSection border-l border-r border-[#d2ee41] dark:border-[#ce2d42] md:flex md:justify-center md:gap-6 md:border-l-0 md:border-r-0 md:border-t">
-    <li className="mb-8 md:mb-0">
-      <div className="flex justify-center mb-2">
-        <div className="h-[12px] w-[12px] rounded-full bg-[#ce2d42] dark:bg-[#ce2d42]"></div>
-      </div>
-      <div className="text-center">
-        <p className="text-sm text-neutral-500 dark:text-neutral-300 mb-1">
-          2024
-        </p>
-        <h4 className="mb-1.5 text-xl font-semibold text-[#ce2d42]">Streaming App</h4>
-        <p className="mb-3 text-neutral-500 dark:text-neutral-300">
-          Designing a modern streaming application.
-        </p>
-      </div>
-    </li>
-
-    <li className="mb-8 md:mb-0">
-      <div className="flex justify-center mb-2">
-        <div className="h-[12px] w-[12px] rounded-full bg-[#ce2d42] dark:bg-[#ce2d42]"></div>
-      </div>
-      <div className="text-center">
-        <p className="text-sm text-neutral-500 dark:text-neutral-300 mb-1">
-          2025
-        </p>
-        <h4 className="mb-1.5 text-xl font-semibold text-[#ce2d42]">Chatroom Application</h4>
-        <p className="mb-3 text-neutral-500 dark:text-neutral-300">
-          Developing an app that allows users to create and manage chatrooms.
-        </p>
-      </div>
-    </li>
-
-    <li>
-      <div className="flex justify-center mb-2">
-        <div className="h-[12px] w-[12px] rounded-full bg-[#ce2d42] dark:bg-[#ce2d42]"></div>
-      </div>
-      <div className="text-center">
-        <p className="text-sm text-neutral-500 dark:text-neutral-300 mb-1">
-          Future
-        </p>
-        <h4 className="mb-1.5 text-xl font-semibold text-[#ce2d42]">Future Projects</h4>
-        <p className="mb-3 text-neutral-500 dark:text-neutral-300">
-          Stay tuned for updates on upcoming projects.
-        </p>
-      </div>
-    </li>
-  </ol>
-</div>
 
 
-  
+
     </div>
     </div>
   );

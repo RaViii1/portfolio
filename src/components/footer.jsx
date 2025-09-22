@@ -9,7 +9,7 @@ const Footer = () => {
           <a href="https://github.com/RaViii1" className="py-2 hover:text-[#d2ee41]">
             <FaGithub size={'1.5em'}></FaGithub>
           </a>
-          <a href='https://www.linkedin.com/in/jakub-baran-1b83122ba/' className="py-2 hover:text-[#d2ee41]">
+          <a href='https://www.linkedin.com/in/baran-jakub' className="py-2 hover:text-[#d2ee41]">
             <FaLinkedinIn size={'1.5em'}></FaLinkedinIn>
           </a>
         </div>

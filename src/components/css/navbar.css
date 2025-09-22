@@ -1,4 +1,4 @@
-.headerNav {
+/* .headerNav {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     color: #dbd9e8;
     display: flex;
@@ -79,14 +79,6 @@
     color: var(--primary-purple-color) !important;
   }
   
-  .menuNav a:hover,
-  .navlinks a:hover,
-  .logo a:hover,
-  .currentlyOn {
-    color: var(--primary-purple-color) !important;
-    -webkit-animation: text-shadow-drop-center 1s both;
-    animation: text-shadow-drop-center 1s both;
-  }
   
   .admin {
     color: red !important;
@@ -200,4 +192,4 @@
     100% {
       filter: drop-shadow(0 0 18px var(--primary-purple-color));
     }
-  }
+  } */

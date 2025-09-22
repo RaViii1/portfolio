@@ -5,7 +5,7 @@ import 'aos/dist/aos.css';
 
 const GalleryItem = ({ src, alt, href, title }) => {
   return (
-    <div className="zoom relative overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20" data-te-ripple-init data-te-ripple-color="light">
+    <div className="zoom relative overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20 border border-gray-800" data-te-ripple-init data-te-ripple-color="light">
       {src.endsWith('.mp4') ? (
         <video className="w-full align-middle transition duration-300 ease-linear" autoPlay loop muted>
           <source src={src} type="video/mp4" />
@@ -37,8 +37,8 @@ const Gallery = () => {
   }, []);
 
   return (
-    <div data-aos="fade-up" className="container glassSection my-24 mx-auto md:px-6">
-      <section className="mb-32">
+    <div data-aos="fade-up" className="container glassSection my-24 mx-auto md:px-6 ">
+      <section className="mb-32 ">
         <style>
           {`
             .zoom:hover img {
