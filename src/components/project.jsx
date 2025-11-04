@@ -27,7 +27,7 @@ const Project = ({ name, description, image, images, technologies, CodeLink, Liv
   return (
     <section
       aria-labelledby={`project-title-${index}`}
-      className="max-w-5xl mx-auto my-20 px-6"
+      className="max-w-5xl mx-auto my-20 px-6 overflow-hidden"
       data-aos={isEvenIndex ? 'fade-up-right' : 'fade-up-left'}
     >
       <div

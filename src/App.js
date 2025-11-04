@@ -13,7 +13,7 @@ import WIP from './components/WIP';
 function App() {
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col ">
       <ParticlesComponent id="particles" />
       <Navbar />
       <LoopingVideoPlayer />

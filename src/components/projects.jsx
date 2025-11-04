@@ -18,12 +18,19 @@ export default function Projects() {
       <div className='projectBody'>
       {/* <ParticlesComponent id="tsparticles "/> */}
       
-      <div className='text-center'>
-        <h2 className="py-16 text-4xl font-bold text-gray-900 dark:text-gray-100 bg-gradient-to-r from-indigo-600 to-pink-500 bg-clip-text text-transparent">
-          Featured Projects
-        </h2>
-      </div>
-
+        <div className="text-center mb-16 py-16 space-y-6">
+          <div className="inline-block">
+            <span className="px-4 py-2 bg-gradient-to-r from-red-500/20 to-pink-500/20 border border-red-500/30 rounded-full text-sm font-medium text-red-400 backdrop-blur-sm">
+              My apps
+            </span>
+          </div>
+          
+          <h2 className="text-5xl lg:text-6xl font-bold">
+            <span className="bg-gradient-to-r from-red-500 via-pink-500 to-red-600 bg-clip-text text-transparent">
+              Featured Projects:
+            </span>
+          </h2>
+        </div>
 
          <Project
           index={1}
