@@ -67,7 +67,7 @@ const Gallery = () => {
           <GalleryItem
             src={process.env.PUBLIC_URL + '/imgs/render2-scaled.webp'}
             alt="Blender render"
-            href={process.env.PUBLIC_URL + '/imgs/render2.PNG'}
+            href={process.env.PUBLIC_URL + '/imgs/render2.png'}
             title="Blender render"
           />
           <GalleryItem
@@ -79,7 +79,7 @@ const Gallery = () => {
           <GalleryItem
             src={process.env.PUBLIC_URL + '/imgs/render1-scaled.webp'}
             alt="Blender render"
-            href={process.env.PUBLIC_URL + '/imgs/render1.PNG'}
+            href={process.env.PUBLIC_URL + '/imgs/render1.png'}
             title="Blender render"
           />
           <GalleryItem
