@@ -2,6 +2,7 @@ import { Mail, Linkedin, Github, Send, MapPin } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function PortfolioContact() {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -118,6 +119,7 @@ export default function PortfolioContact() {
             );
           })}
         </div>
+        <Analytics />
       </div>
     </section>
   );

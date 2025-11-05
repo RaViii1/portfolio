@@ -9,6 +9,8 @@ import Footer from './components/footer';
 import About from './components/about';
 import ParticlesComponent from './components/ParticlesComponent';
 import WIP from './components/WIP';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
 
@@ -16,12 +18,13 @@ function App() {
     <div className="min-h-screen flex flex-col ">
       <ParticlesComponent id="particles" />
       <Navbar />
+      <Analytics />
+      <SpeedInsights />
       <LoopingVideoPlayer />
       <About />
       <Projects />
       <WIP/>
       <ContactForm />
-
       <Footer />
     </div>
   );
