@@ -72,10 +72,8 @@ export default function WorkInProgress() {
       onMouseLeave={handleMouseLeave}
       aria-label="Working on project overlay"
     >
-      {/* Animated background orbs */}
-      <div data-aos="fade-up" className="absolute top-20 left-10 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl animate-pulse" />
-      <div data-aos="fade-up" data-aos-delay="400" className="absolute bottom-20 right-10 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse" />
-
+    <div className="absolute inset-0 opacity-10 bg-cover bg-center" style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/imgs/hero.webp)` }} />
+      <div className="absolute top-0 left-0 right-0 h-px opacity-20 bg-gradient-to-r from-transparent via-pink-500 to-transparent" />
       <div className="relative max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div data-aos="fade-up" className="text-center mb-16 space-y-6">

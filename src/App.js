@@ -10,7 +10,9 @@ import About from './components/about';
 import ParticlesComponent from './components/ParticlesComponent';
 import WIP from './components/WIP';
 import { Analytics } from '@vercel/analytics/react';
+import LandingPageCarousel from './components/LandingPageCarousel';
 import { SpeedInsights } from "@vercel/speed-insights/react"
+import Gallery from './components/gallery';
 
 function App() {
 
@@ -23,6 +25,8 @@ function App() {
       <LoopingVideoPlayer />
       <About />
       <Projects />
+      <LandingPageCarousel />
+      <Gallery />
       <WIP/>
       <ContactForm />
       <Footer />

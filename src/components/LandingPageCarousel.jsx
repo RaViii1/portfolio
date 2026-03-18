@@ -1,137 +1,191 @@
-import React, { useState, useEffect } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules'; 
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import './css/portfolio.css'; 
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+/*
+ * Design Dark Cosmos — Sites Section
+ * Carousel of client websites with prev/next navigation
+ */
+import { useState, useRef } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 
-const LandingPageCarousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const sites = [
+  {
+    name: "Annawachaczyk.com",
+    url: "https://annawachaczyk.com",
+    description: "Personal portfolio website — elegant and modern",
+    image: "/imgs/AnnaWachaczyk.png",
+    tag: "Portfolio",
+  },
+  {
+    name: "Antykwariat-pasja.pl",
+    url: "https://antykwariat-pasja.pl",
+    description: "Antique bookstore — e-commerce platform",
+    image: "imgs/SalonAntykówPasja.png",
+    tag: "E-commerce",
+  },
+  {
+    name: "Jolakitowska.pl",
+    url: "https://jolakitowska.pl",
+    description: "Artist portfolio — creative showcase",
+    image: "/imgs/JolantaKitowska.png",
+    tag: "Portfolio",
+  },
+  {
+    name: "Galeriabator.com",
+    url: "https://galeriabator.com",
+    description: "Art gallery — exhibition showcase",
+    image: "/imgs/GaleriaBator.png",
+    tag: "Gallery",
+  },
+];
 
-  const items = [
-    {
-      src: process.env.PUBLIC_URL + '/imgs/AnnaWachaczyk.png',
-      link: 'https://annawachaczyk.com/pl/', 
-      name: 'Annawachaczyk.com',
-    },
-    {
-      src: process.env.PUBLIC_URL + '/imgs/SalonAntykówPasja.png',
-      link: 'https://antykwariat-pasja.pl/', 
-      name: 'Antykwariat-pasja.pl',
-    },
-    {
-      src: process.env.PUBLIC_URL + '/imgs/JolantaKitowska.png',
-      link: 'https://jolakitowska.pl/',
-      name: 'jolakitowska.pl',
-    },
-    {
-      src: process.env.PUBLIC_URL + '/imgs/galeriabator.png',
-      link: 'https://galeriabator.com/',
-      name: 'galeriabator.com',
-    },
-  ];
-  
-  useEffect(() => {
-    AOS.init({
-      duration: 700, // Animation duration in milliseconds
-      easing: 'ease-out-cubic', // Animation easing
-      once: true, 
-    });
-  }, []);
+export default function SitesSection() {
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+
+  const prev = () => {
+    setDirection(-1);
+    setCurrent((c) => (c - 1 + sites.length) % sites.length);
+  };
+  const next = () => {
+    setDirection(1);
+    setCurrent((c) => (c + 1) % sites.length);
+  };
+
+  const site = sites[current];
 
   return (
-    <div data-aos="fade-down">
-        <div className="text-center mb-16 py-16 space-y-6">
-          <div className="inline-block">
-            <span className="px-4 py-2 bg-gradient-to-r from-red-500/20 to-pink-500/20 border border-red-500/30 rounded-full text-sm font-medium text-red-400 backdrop-blur-sm">
-              My recent work
-            </span>
-          </div>
-          
-          <h2 className="text-5xl lg:text-6xl font-bold">
+    <section
+      className="relative py-24 overflow-hidden bg-gradient-to-br from-[#0b071a] to-[#0a061b]"
+      id="LandingPages"
+    >
+      {/* Top divider */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px opacity-20 bg-gradient-to-r from-transparent via-violet-500 to-transparent" />
+
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="text-xs font-mono uppercase tracking-widest px-3 py-1 rounded-full bg-violet-500/15 border border-violet-500/30 text-violet-300 inline-flex mb-4">
+            My recent work
+          </span>
+          <h2 className="text-4xl sm:text-6xl font-bold text-white">
+            Sites I{" "}
             <span className="bg-gradient-to-r from-red-500 via-pink-500 to-red-600 bg-clip-text text-transparent">
-              Sites I Worked On:
+              Worked On
             </span>
           </h2>
-          
-        </div>
+        </motion.div>
 
+        {/* Carousel */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
+          <div className="relative rounded-2xl overflow-hidden bg-white/[0.06] backdrop-blur-xl border-2 border-violet-500/20">
+            <div className="relative overflow-hidden" style={{ paddingBottom: "52%" }}>
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={current}
+                  initial={{ opacity: 0, x: direction * 60 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: direction * -60 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  src={site.image}
+                  alt={site.name}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </AnimatePresence>
 
-      <div className="relative mb-8 md:max-w-[60%] max-w-[90%] mx-auto contact-background 
-                      bg-gradient-to-r from-[#100c31] to-[#0a061b] md:p-8 border border-[#6b21a885] 
-                      transition-colors duration-500 ease-in-out hover:border-gray-700">
-        {/* Navigation Buttons */}
-        <button 
-          className="hidden absolute top-1/2 left-8 transition-colors duration-500 ease-in-out transform -translate-y-1/2 bg-purple-500 hover:bg-[#b12a3c00] hover:border hover:border-purple-500 text-white rounded-full w-10 h-10 md:flex md:items-center md:justify-center shadow-md z-10"
-          id="prev-button"
-        >
-          &#10094;
-        </button>
-        
-        <button 
-          className="hidden absolute top-1/2 right-8 transition-colors duration-500 ease-in-out transform -translate-y-1/2 bg-purple-500 hover:bg-[#b12a3c00] hover:border hover:border-purple-500 text-white rounded-full w-10 h-10 md:flex md:items-center md:justify-center shadow-md z-10"
-          id="next-button"
-        >
-          &#10095;
-        </button>
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/20 to-black/90" />
 
-        {/* Swiper Carousel */}
-        <Swiper
-          spaceBetween={24} // More space between slides
-          navigation={{
-            prevEl: '#prev-button',
-            nextEl: '#next-button',
-          }}
-          pagination={{
-            clickable: true,
-            dynamicBullets: true,
-            renderBullet(index, className) {
-              return `<span class="${className}" style="background-color:#ad46ff; width: 16px; height: 16px; color:#ad46ff"></span>`;
-            },
-          }}
-          loop={true}
-          onSlideChange={(swiper) => setCurrentIndex(swiper.realIndex)}
-          modules={[Navigation, Pagination]}
-          breakpoints={{
-            0: {
-              slidesPerView: 1,
-            },
-            768: {
-              slidesPerView: 1.5, // Show fewer slides for bigger size
-            },
-            1024: {
-              slidesPerView: 2, // Show 2 slides at once on desktops for larger view
-            },
-            1440: {
-              slidesPerView: 3, // Increase on very large screens
-            },
-          }}
-          className="max-w-[90%] mx-auto" // Increase container max width
-        >
-        {items.map((item, index) => (
-          <SwiperSlide key={index} className="my-6 sm:my-8 md:my-10 relative group">
-            <a href={item.link} target="_blank" rel="noopener noreferrer" className="block relative">
-              <img 
-                src={item.src} 
-                alt={`Landing page ${index + 1}`} 
-                className="w-[350px] h-[450px] object-cover rounded-lg shadow-lg mx-auto hover:brightness-50 transition duration-300 md:mb-0 mb-8"
+              {/* Tag */}
+              <div className="absolute top-4 left-4">
+                <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-violet-500/25 border border-violet-500/40 text-violet-300">
+                  {site.tag}
+                </span>
+              </div>
+
+              {/* Site info overlay */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 flex items-end justify-between gap-4">
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-1">{site.name}</h3>
+                  <p className="text-white/55 text-sm">{site.description}</p>
+                </div>
+                <a
+                  href={site.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 text-sm rounded-lg font-semibold bg-slate-800/60 border border-slate-600/60 text-slate-300 hover:border-red-500/50 hover:text-white hover:shadow-lg hover:shadow-red-500/20 transition-all duration-300 backdrop-blur-sm flex-shrink-0"
+                >
+                  <ExternalLink size={13} />
+                  Visit
+                </a>
+              </div>
+
+              <button
+                onClick={prev}
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-lg flex items-center justify-center bg-black/70 border border-white/20 text-white shadow-xl hover:border-red-500/60 hover:bg-gradient-to-br hover:from-red-600 hover:to-pink-600 hover:shadow-red-500/40 transition-all duration-300"
+              >
+                <ChevronLeft size={18} />
+              </button>
+              <button
+                onClick={next}
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-lg flex items-center justify-center bg-black/70 border border-white/20 text-white shadow-xl hover:border-red-500/60 hover:bg-gradient-to-br hover:from-red-600 hover:to-pink-600 hover:shadow-red-500/40 transition-all duration-300"
+              >
+                <ChevronRight size={18} />
+              </button>
+
+              {/* Counter */}
+              <div className="absolute top-4 right-4 text-xs font-mono text-white/40">
+                {String(current + 1).padStart(2, "0")} / {String(sites.length).padStart(2, "0")}
+              </div>
+            </div>
+          </div>
+
+          {/* Dots */}
+          <div className="flex justify-center gap-2 mt-5">
+            {sites.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }}
+                className="transition-all duration-300"
+                style={{
+                  width: current === i ? "28px" : "8px",
+                  height: "8px",
+                  borderRadius: "4px",
+                  background: current === i ? "#e11d48" : "rgba(255,255,255,0.18)",
+                }}
               />
-              <p className="absolute inset-0 flex items-center justify-center text-white text-xl font-sans font-semibold bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg pointer-events-none">
-                {item.name}
-              </p>
-            </a>
-          </SwiperSlide>
-        ))}
+            ))}
+          </div>
 
-        </Swiper>
-
-        <div className="swiper-pagination-container md:mt-4 mt-8"></div>
+          {/* Site list */}
+          <div className="flex flex-wrap justify-center gap-6 mt-8">
+            {sites.map((s, i) => (
+              <button
+                key={s.name}
+                onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }}
+                className={`text-sm transition-all duration-200 font-mono ${
+                  i === current
+                    ? "text-red-400 underline underline-offset-4"
+                    : "text-white/35 hover:text-white/70"
+                }`}
+              >
+                {s.name}
+              </button>
+            ))}
+          </div>
+        </motion.div>
       </div>
-    </div>
+      <div className="absolute bottom-0 left-0 right-0 h-px opacity-20 bg-gradient-to-r from-transparent via-pink-500 to-transparent" />
+    </section>
   );
-};
-
-export default LandingPageCarousel;
+}

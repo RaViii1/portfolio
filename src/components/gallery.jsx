@@ -37,7 +37,9 @@ const Gallery = () => {
   }, []);
 
   return (
-    <div data-aos="fade-up" className="container glassSection my-24 mx-auto md:px-6 ">
+          
+    <div data-aos="fade-up" className="container my-24 mx-auto md:px-6 ">
+      
       <section className="mb-32 ">
         <style>
           {`

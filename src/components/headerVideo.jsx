@@ -1,82 +1,127 @@
-import { ArrowDown, Sparkles, Code2, Rocket } from 'lucide-react';
-import { useEffect, useState } from 'react';
 
-export default function PortfolioHeader() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+import { motion } from "framer-motion";
+import { Code2, Rocket, ChevronDown } from "lucide-react";
 
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+const HERO_BG = "imgs/baner.jpg"; 
 
-  const scrollToProjects = () => {
-    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
+function Particles() {
   return (
-    <div className="relative h-screen bg-gradient-to-br from-[#0c071b] via-[#090417] to-[#120826] overflow-hidden">
-      
-      <img
-        src={process.env.PUBLIC_URL + '/imgs/baner.jpg'}
-        alt="Portfolio banner"
-        className="absolute inset-0 object-cover w-full h-full brightness-60"
-      />
-      <div className="absolute inset-0 bg-black/60 pointer-events-none" />
-
-      <div className="relative h-full flex items-center justify-center px-6 z-10">
-        <div className="max-w-5xl text-center space-y-8">
-
-          
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tight">
-            <span className="block text-white mb-2">Explore My</span>
-            <span className="block bg-gradient-to-r from-red-500 via-pink-500 to-red-600 bg-clip-text text-transparent">
-              Portfolio
-            </span>
-          </h1>
-
-         
-          <div className="flex flex-wrap items-center justify-center gap-4 text-slate-300 text-lg md:text-xl">
-            <div className="flex items-center gap-2">
-              <Code2 className="w-5 h-5 text-red-400" />
-              <span>Full-Stack Developer</span>
-            </div>
-            <span className="text-slate-600">•</span>
-            <div className="flex items-center gap-2">
-              <Rocket className="w-5 h-5 text-pink-400" />
-              <span>Modern Web Solutions</span>
-            </div>
-          </div>
-
-          {/* Description */}
-          <p className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            A showcase of production-ready projects demonstrating expertise in React, TypeScript, and modern web technologies.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-            <button
-              onClick={scrollToProjects}
-              data-testid="button-view-projects"
-              className="group bg-gradient-to-r from-red-700 to-pink-700 hover:from-red-800 hover:to-pink-800 text-white text-lg px-8 py-6 shadow-xl hover:shadow-red-600/50 transition-all duration-300 rounded"
-            >
-              View Projects
-              <ArrowDown className="w-5 h-5 ml-2 group-hover:translate-y-1 transition-transform inline-block" />
-            </button>
-            
-            <a href="#contact">
-              <button
-                data-testid="button-contact-me"
-                className="border-2 border-slate-700 text-white hover:border-purple-500 hover:text-purple-500 bg-transparent hover:bg-purple-500/20 text-lg px-8 py-6 rounded transition-colors duration-300"
-              >
-                Contact Me
-              </button>
-            </a>
-          </div>
-        </div>
-      </div>
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {[...Array(8)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-1 h-1 bg-fuchsia-600 rounded-full opacity-60"
+          animate={{
+            y: [0, -window.innerHeight],
+            x: [0, (Math.random() - 0.5) * 100],
+            opacity: [0, 1, 0],
+          }}
+          transition={{
+            duration: 3 + Math.random() * 2,
+            repeat: Infinity,
+            delay: i * 0.03,
+          }}
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+          }}
+        />
+      ))}
     </div>
+  );
+}
+
+export default function HeroSection() {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${HERO_BG})` }}
+      />
+
+      {/* Overlay gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black" />
+
+      {/* Particles */}
+      <Particles />
+
+      {/* Content */}
+      <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
+        {/* Main heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold leading-tight mb-2 text-white">
+            Explore My
+          </h1>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold leading-tight mb-6 bg-gradient-to-r from-pink-500 to-pink-400 bg-clip-text text-transparent">
+            Portfolio
+          </h1>
+        </motion.div>
+
+        {/* Badges */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex items-center justify-center gap-4 mb-5 flex-wrap"
+        >
+          <span className="flex items-center gap-1.5 text-sm text-white/60">
+            <Code2 size={13} className="text-pink-400" />
+            Full-Stack Developer
+          </span>
+          <span className="text-white/25">•</span>
+          <span className="flex items-center gap-1.5 text-sm text-white/60">
+            <Rocket size={13} className="text-violet-400" />
+            Modern Web Solutions
+          </span>
+        </motion.div>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.55 }}
+          className="text-white/60 text-base sm:text-lg max-w-xl mx-auto mb-10 leading-relaxed"
+        >
+          A showcase of production-ready projects demonstrating expertise in
+          React, TypeScript, and modern web technologies.
+        </motion.p>
+
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
+          className="flex items-center justify-center gap-4 flex-wrap mb-12"
+        >
+          <a href="#projects" className="text-white group px-8 py-4 bg-gradient-to-r from-red-600 to-pink-600 rounded-lg font-semibold hover:shadow-lg hover:shadow-red-500/50 transition-all duration-300 flex items-center gap-2">
+            View Projects
+            <ChevronDown size={16} />
+          </a>
+          <a 
+            href="https://www.linkedin.com/in/baran-jakub"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white px-8 py-4 border-2 border-slate-600 rounded-lg font-semibold hover:border-purple-400 hover:text-purple-400 transition-all duration-300 flex items-center gap-2"
+            >
+            Contact Me
+          </a>
+        </motion.div>
+
+      </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      >
+        <ChevronDown size={24} className="text-white/30" />
+      </motion.div>
+    </section>
   );
 }

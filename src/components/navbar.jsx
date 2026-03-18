@@ -1,139 +1,173 @@
-import './css/tailwind.css';
-import './css/portfolio.css';
-import './css/navbar.css';
+
+import { useState, useEffect } from "react";
+import { Download, Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import CV from '../CV.pdf';
-import React, { useEffect, useState, useRef } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaArrowDown } from "react-icons/fa";
+const navLinks = [
+  { label: "About", href: "about" },
+  { label: "Projects", href: "projects" },
+  { label: "Landing Pages", href: "LandingPages" },
+  { label: "Contact", href: "contact" },
+  
+];
 
 export default function Navbar() {
-  const [folded, setFolded] = useState(true);
-  const navRef = useRef(null);
-  const buttonRef = useRef(null);
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
-  // Close menu on outside click
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (
-        folded === false &&
-        navRef.current &&
-        !navRef.current.contains(event.target) &&
-        buttonRef.current &&
-        !buttonRef.current.contains(event.target)
-      ) {
-        setFolded(true);
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [folded]);
-
-  // Responsive open/close logic based on window width
-  useEffect(() => {
-    function handleResize() {
-      if (window.innerWidth >= 768) {
-        setFolded(false);
-      } else {
-        setFolded(true);
-      }
-    }
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleFold = () => {
-    if (window.innerWidth < 768) {
-      setFolded((prev) => !prev);
-    }
-  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    ["about", "projects", "LandingPages", "contact"].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
 
-  // Close menu on link click (mobile only)
-  const handleLinkClick = () => {
-    if (window.innerWidth < 768) {
-      setFolded(true);
-    }
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setMobileOpen(false);
   };
 
   return (
-    <header className="headerNavbg fixed top-0 left-0 w-full z-50 shadow-lg backdrop-blur-md bg-[#100c31cc] border-b border-[#6b21a8aa]">
-      {/* Mobile menu toggle button */}
-      <div className="flex justify-end p-4 text-[#ad46ff] md:hidden">
-        <button
-          ref={buttonRef}
-          onClick={toggleFold}
-          aria-label="Toggle menu"
-          aria-expanded={!folded}
-          aria-controls="primary-navigation"
-          className="foldButton text-3xl text-[#ad46ff] hover:text-[#6b21a8] cursor-pointer transition duration-300"
-        >
-          {folded ? <FaBars /> : <FaTimes />}
-        </button>
-      </div>
-
-      {/* Navigation */}
-      <nav
-        id="primary-navigation"
-        ref={navRef}
-        className={`headerNav glassBorderBottom px-8 py-4 transition-all duration-300 ${
-          folded ? 'hidden' : 'flex'
-        } flex-col items-center md:flex md:flex-row md:items-center md:justify-between md:gap-12`}
+    <>
+      <motion.nav
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-xl ${
+          scrolled
+            ? "bg-black/92 border-b border-violet-500/20"
+            : "bg-black/35 border-b border-transparent"
+        }`}
       >
-        {/* Logo on left */}
-        <div className="logo mb-4 md:mb-0">
-          <a
-            href="/"
-           className="font-zen-dots italic text-4xl bg-gradient-to-r from-indigo-600 to-pink-500 bg-clip-text text-transparent select-none px-1
-  bg-[length:200%_100%] bg-left transition-[background-position] duration-700 ease-in-out
-  hover:bg-right"
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <button
+              className="font-bold text-2xl bg-gradient-to-r from-violet-500 to-pink-500 bg-clip-text text-transparent"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              RaVi
+            </button>
 
+            {/* Desktop Nav */}
+            <div className="hidden md:flex items-center gap-6">
+              {navLinks.map((link) => (
+                <button
+                  key={link.href}
+                  onClick={() => scrollTo(link.href)}
+                  className={`text-sm font-medium transition-colors relative py-1 ${
+                    activeSection === link.href
+                      ? "text-pink-500"
+                      : "text-white/70 hover:text-white"
+                  }`}
+                >
+                  {link.label}
+                  {activeSection === link.href && (
+                    <motion.div
+                      layoutId="nav-indicator"
+                      className="absolute -bottom-0.5 left-0 right-0 h-0.5 rounded-full bg-pink-500"
+                    />
+                  )}
+                </button>
+              ))}
+              <a
+                href="https://github.com/RaViii1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-white/70 hover:text-white transition-colors"
+              >
+                GitHub
+              </a>
+              <a
+                href={CV}
+                download="Example-PDF-document"
+                target="_blank"
+                rel="noreferrer"
+                className="px-0 py-3"
+              >
+                <button className="bg-[#d2ee41] text-sm hover:bg-transparent border border-transparent text-gray-800 font-semibold py-1 px-4 rounded inline-flex items-center transition duration-300 hover:text-[#d2ee41] hover:border-[#d2ee41]">
+                    <FaArrowDown className="w-4 h-4 mr-1" />
+                  <span>Download CV</span>
+                </button>
+              </a>
+            </div>
 
-            onClick={handleLinkClick}
-          >
-            RaVi
-          </a>
+            {/* Mobile toggle */}
+            <button
+              className="md:hidden text-white/80 hover:text-white p-1"
+              onClick={() => setMobileOpen(!mobileOpen)}
+            >
+              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
+      </motion.nav>
 
-        {/* Links container center aligned on mobile */}
-        <div
-          className="navbarLinks flex flex-col w-full items-center gap-2 text-lg md:flex-row md:gap-10 md:w-auto md:items-center"
-          onClick={handleLinkClick}
-        >
-          <a
-            href="#contact"
-            className="px-6 py-3 rounded text-[#dbd9e8] border-b-2 border-transparent hover:text-[#d2ee41] hover:border-b-2 hover:border-[#d2ee41] transition duration-300"
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="fixed top-16 left-0 right-0 z-40 md:hidden bg-black/97 backdrop-blur-2xl border-b border-violet-500/20"
           >
-            Contact
-          </a>
-          <a
-            href="https://github.com/RaViii1"
-            target="_blank"
-            rel="noreferrer"
-            className="px-6 py-3  rounded border-b-2 border-transparent text-[#dbd9e8] hover:text-[#d2ee41] hover:border-b-2 hover:border-[#d2ee41] transition duration-300"
-          >
-            GitHub
-          </a>
-
-          <a
-            href={CV}
-            download="Example-PDF-document"
-            target="_blank"
-            rel="noreferrer"
-            className="px-0 py-3"
-          >
-        <button className="bg-[#d2ee41] hover:bg-transparent border-2 border-transparent text-gray-800 font-bold py-2 px-6 rounded inline-flex items-center transition duration-300 hover:text-[#d2ee41] hover:border-[#d2ee41]">
-          <svg
-            className="fill-current w-5 h-5 mr-2"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-          >
-            <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
-          </svg>
-          <span>Download CV</span>
-        </button>
-
-          </a>
-        </div>
-      </nav>
-    </header>
+            <div className="flex flex-col gap-1 p-4">
+              {navLinks.map((link) => (
+                <button
+                  key={link.href}
+                  onClick={() => scrollTo(link.href)}
+                  className={`text-left px-4 py-3 rounded-lg transition-all text-sm ${
+                    activeSection === link.href
+                      ? "text-pink-500"
+                      : "text-white/70 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  {link.label}
+                </button>
+              ))}
+              <button
+                onClick={() => { window.open("https://github.com/RaViii1", "_blank"); setMobileOpen(false); }}
+                className="text-left px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-sm"
+              >
+                GitHub
+              </button>
+              <a
+                href={CV}
+                download="Example-PDF-document"
+                target="_blank"
+                rel="noreferrer"
+                className="px-0 py-3"
+              >
+                <button className="bg-[#d2ee41] text-sm hover:bg-transparent border border-transparent text-gray-800 font-semibold py-1 px-4 rounded inline-flex items-center transition duration-300 hover:text-[#d2ee41] hover:border-[#d2ee41]">
+                    <FaArrowDown className="w-4 h-4 mr-1" />
+                  <span>Download CV</span>
+                </button>
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
