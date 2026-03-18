@@ -50,11 +50,7 @@ export default function WorkInProgress() {
     let timer;
     if (isHovering) {
       timer = setTimeout(() => {
-        setIsFading(true);
-        setTimeout(() => {
-          setIsHovering(false);
-          setIsFading(false);
-        }, 1000); // fade out duration
+        setIsHovering(false);
       }, 10000); // after 10 seconds hover
     }
     return () => clearTimeout(timer);
