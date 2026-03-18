@@ -9,7 +9,6 @@ import './css/portfolio.css';
 
 const ParticlesComponent = (props) => {
 
-  const [init, setInit] = useState(false);
   // this should be run only once per application lifetime
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -20,8 +19,6 @@ const ParticlesComponent = (props) => {
       //await loadFull(engine);
       await loadSlim(engine);
       //await loadBasic(engine);
-    }).then(() => {
-      setInit(true);
     });
   }, []);
 

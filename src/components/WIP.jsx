@@ -28,7 +28,6 @@ const VideoComponent = ({ videoRef, src }) => {
 export default function WorkInProgress() {
   const videoRef = useRef(null);
   const [isHovering, setIsHovering] = useState(false);
-  const [isFading, setIsFading] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
 
   useEffect(() => {

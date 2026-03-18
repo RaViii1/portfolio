@@ -4,16 +4,6 @@ import { FaReact, FaNode, FaCss3,  FaVuejs, FaLinkedin, FaGithub  } from "react-
 import { SiNextdotjs, SiTypescript } from "react-icons/si";
 
 function About() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [activeSkill, setActiveSkill] = useState(null);
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
 
   return (
     <div 
