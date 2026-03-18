@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Code2, Sparkles, Rocket, Mail, Github, Linkedin, ExternalLink, Briefcase, GraduationCap } from 'lucide-react';
-import { FaReact, FaJsSquare, FaNode, FaCss3, FaArrowRight, FaVuejs, FaLinkedin, FaGithub, FaBriefcase  } from "react-icons/fa";
+import { Mail, ExternalLink, Briefcase, GraduationCap } from 'lucide-react';
+import { FaReact, FaNode, FaCss3,  FaVuejs, FaLinkedin, FaGithub  } from "react-icons/fa";
 import { SiNextdotjs, SiTypescript } from "react-icons/si";
 
 function About() {
@@ -78,7 +78,7 @@ function About() {
                 <ExternalLink className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </a>
               <button className="px-8 py-4 border-2 border-slate-600 rounded-lg font-semibold hover:border-purple-400 hover:text-purple-400 transition-all duration-300 flex items-center gap-2">
-                <Github className="w-5 h-5" />
+                <FaGithub className="w-5 h-5" />
                 View Work
               </button>
             </div>

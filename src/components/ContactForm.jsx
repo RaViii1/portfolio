@@ -1,8 +1,9 @@
-import { Mail, Linkedin, Github, Send, MapPin } from 'lucide-react';
+import { Mail, Send } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Analytics } from '@vercel/analytics/react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export default function PortfolioContact() {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -23,7 +24,7 @@ export default function PortfolioContact() {
     },
     {
       id: 'linkedin',
-      icon: Linkedin,
+      icon: FaLinkedin,
       label: 'LinkedIn',
       value: 'Jakub Baran',
       link: 'https://www.linkedin.com/in/baran-jakub',
@@ -32,7 +33,7 @@ export default function PortfolioContact() {
     },
     {
       id: 'github',
-      icon: Github,
+      icon: FaGithub,
       label: 'GitHub',
       value: 'View Projects',
       link: 'https://github.com/RaViii1',

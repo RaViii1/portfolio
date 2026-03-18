@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Download, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import CV from '../CV.pdf';
 import { FaArrowDown } from "react-icons/fa";

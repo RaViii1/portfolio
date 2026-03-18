@@ -1,8 +1,7 @@
 import './css/tailwind.css';
 import React from "react";
 import Project from './project';
-import Gallery from './gallery';
-import LandingPageCarousel from './LandingPageCarousel';
+
 
 export default function Projects() {
   const magicmatch = ['MongoDB', 'Express', 'React', 'NodeJS'];
