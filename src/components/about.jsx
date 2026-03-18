@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React from 'react';
 import { Mail, ExternalLink, Briefcase, GraduationCap } from 'lucide-react';
 import { FaReact, FaNode, FaCss3,  FaVuejs, FaLinkedin, FaGithub  } from "react-icons/fa";
 import { SiNextdotjs, SiTypescript } from "react-icons/si";
